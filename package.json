@@ -1,0 +1,39 @@
+{
+  "name": "matthewdhuntley.com",
+  "version": "1.0.0",
+  "description": "A website about Matthew David Huntley.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthewHuntley/matthewdhuntley.git"
+  },
+  "author": "Matthew Huntley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatthewHuntley/matthewdhuntley_prod/issues"
+  },
+  "homepage": "https://github.com/MatthewHuntley/matthewdhuntley_prod#readme",
+  "devDependencies": {
+    "clean-css": "^3.4.19",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.4",
+    "vinyl-map": "^1.0.1"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  },
+  "engines": {
+    "node": "6.2.0"
+  }
+}
