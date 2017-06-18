@@ -1,4 +1,4 @@
-extends ./layout.jade
+extends ../layout.jade
 
 block content
   div.wrapper-content.film-reviews
@@ -8,8 +8,8 @@ block content
           div#filmReviewsSearch
             span Film Review Archives
             form#search(method="get", accept-charset="UTF-8")
-              input(type="text", placeholder="SEARCH")
-              button(type="submit" value="")
+              input(type="text", name="search" placeholder="SEARCH")
+              button(id="searchButton", type="submit", value="")
                 i(class="fa fa-search" aria-hidden="true")
       div.container.content
         h1 Film Reviews
@@ -37,6 +37,10 @@ block content
             div#latest-film-review-link.hidden-xs.hidden-sm.visible-md.col-md-12.visible-lg
               p.article-link-read-more
                 a(class='article-link' href='/film-reviews') ...Read More!
+              div.results
+                //-var results = data
+                  each item in results
+                    li= item.title
           div.col-sm-12.col-md-6.col-lg-4
             div#latest-reviews-list
               h3.hidden-xs.hidden-sm.visible-md.visible-lg Other Recent Posts

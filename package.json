@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MatthewHuntley/matthewdhuntley_prod.git"
+    "url": "git+https://github.com/MatthewHuntley/matthewdhuntley.git"
   },
   "author": "Matthew Huntley",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MatthewHuntley/matthewdhuntley_prod/issues"
+    "url": "https://github.com/MatthewHuntley/matthewdhuntley_dev/issues"
   },
-  "homepage": "https://github.com/MatthewHuntley/matthewdhuntley_prod#readme",
+  "homepage": "https://github.com/MatthewHuntley/matthewdhuntley_dev#readme",
   "devDependencies": {
     "clean-css": "^3.4.19",
     "del": "^2.2.2",
@@ -30,6 +30,7 @@
     "vinyl-map": "^1.0.1"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.13.4",
     "jade": "^1.11.0"
   },
