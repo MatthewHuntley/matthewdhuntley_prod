@@ -117,7 +117,7 @@ function checkConnection(value = 'index') {
 app.get('/', function(req, res) {
 	
 	//Check connection with each home page request:
-	//checkConnection();
+	checkConnection();
 
 	var path = req.path;
 	res.locals.path = path; //This locals object is what get rendered in the template; it's the same as writing "res.render('index', { path: path });"
