@@ -39,7 +39,7 @@ var connection = database.makeConnection();
 console.log(connection.threadId);*/
 
 //Require mysql node module and establish connection to database for matthewdhuntley.com:
-var mysql      = require('mysql');
+/*var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -111,13 +111,13 @@ function checkConnection(value = 'index') {
 	} else {
 		console.log("Already connected.");
 	}
-}
+}*/
 
 //Render home page
 app.get('/', function(req, res) {
 	
 	//Check connection with each home page request:
-	checkConnection();
+	//checkConnection();
 
 	var path = req.path;
 	res.locals.path = path; //This locals object is what get rendered in the template; it's the same as writing "res.render('index', { path: path });"
