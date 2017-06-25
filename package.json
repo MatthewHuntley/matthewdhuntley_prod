@@ -32,7 +32,8 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.13.4",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "mysql": "^2.13.0"
   },
   "engines": {
     "node": "6.2.0"
