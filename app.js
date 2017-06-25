@@ -126,6 +126,7 @@ app.get('/', function(req, res) {
 	
 	console.log("Hello");
 	console.log(path);
+	console.log(connection);
 	res.render('index');
 });
 
