@@ -39,13 +39,13 @@ var connection = database.makeConnection();
 console.log(connection.threadId);*/
 
 //Require mysql node module and establish connection to database for matthewdhuntley.com:
-/*var mysql      = require('mysql');
+var mysql      = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'root',
-  port : '8889',
-  database : 'matthewdhuntley'
+  host     : 'us-cdbr-iron-east-03.cleardb.net',
+  user     : 'bd16f9aa3f67c9',
+  password : '95cc362c',
+  //port : '8889',
+  database : 'heroku_af028f2224ccdc7'
 });
 
 var connected = false;
