@@ -111,7 +111,7 @@ function checkConnection(value = 'index') {
 	} else {
 		console.log("Already connected.");
 	}
-}*/
+}
 
 //Render home page
 app.get('/', function(req, res) {
