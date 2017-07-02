@@ -115,22 +115,18 @@ function checkConnection(value = 'index') {
 app.get('/', function(req, res) {
 	
 	//Check connection with each home page request:
-	//checkConnection();
+	checkConnection();
 	/*connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
 	  if (error) throw error;
 	  console.log('The solution is: ', results[0].solution);
 	});*/
-	connection.query('SELECT * FROM film_reviews WHERE title LIKE "Lucas"', function (error, results, fields) {
+	/*connection.query('SELECT * FROM film_reviews WHERE title LIKE "Lucas"', function (error, results, fields) {
 	  if (error) throw error;
 	  console.log('The solution is: ', results[0]);
-	});
+	});*/
 
 	var path = req.path;
 	res.locals.path = path; //This locals object is what get rendered in the template; it's the same as writing "res.render('index', { path: path });"
-	
-	console.log("Hello");
-	console.log(path);
-	console.log(connection);
 	res.render('index');
 });
 
@@ -164,11 +160,10 @@ views.forEach(function(value, index) {
 			} else { //Else...
 				//...attempt to establish a Database connection...
 				connection = mysql.createConnection({
-				  host     : 'localhost',
-				  user     : 'root',
-				  password : 'root',
-				  port : '8889',
-				  database : 'matthewdhuntley'
+				  host     : 'us-cdbr-iron-east-03.cleardb.net',
+				  user     : 'bd16f9aa3f67c9',
+				  password : '95cc362c',
+				  database : 'heroku_af028f2224ccdc7'
 				});
 
 				connection.connect(function(err) {
