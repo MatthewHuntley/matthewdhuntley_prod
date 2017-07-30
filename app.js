@@ -32,100 +32,55 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 
-//Random comment
 //Potential future code using developer-created node module:
 //Database:
 /*var database = require('./appRequirements/_database.js'); 
 var connection = database.makeConnection();
 console.log(connection.threadId);*/
 
-//Require mysql node module and establish connection to database for matthewdhuntley.com:
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'us-cdbr-iron-east-03.cleardb.net',
-  user     : 'bd16f9aa3f67c9',
-  password : '95cc362c',
-  database : 'heroku_af028f2224ccdc7'
+var mysql = require('mysql');
+
+//Declare pool object for mysql node module w/ local database:
+/*var pool  = mysql.createPool({
+  connectionLimit : 10,
+  host     : 'localhost',
+  user     : 'root',
+  password : 'root',
+  port : '8889',
+  database : 'matthewdhuntley'
+});*/
+
+//Declare pool object for mysql node module w/ Herokus database:
+var pool  = mysql.createPool({
+	connectionLimit : 10,
+	host     : 'us-cdbr-iron-east-03.cleardb.net',
+	user     : 'bd16f9aa3f67c9',
+	password : '95cc362c',
+	database : 'heroku_af028f2224ccdc7'
 });
 
-var connected = false;
-
-//Attempt to connect to matthewdhuntley.com Database prior to app startup:
-connection.connect(function(err) {
-  if (err) {
-  	console.log(err.code);
-  	console.log(err);
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
- 
-  connected = true;
-
-  //Confirm connection:
-  console.log(connected);
-  console.log('connected as id ' + connection.threadId);
-});
-
-//Handle Database connection errors:
-connection.on('error', function(err){
-	console.log(err.code);
-	if(err.code === 'PROTOCOL_CONNECTION_LOST')
-		connection.destroy();
-		connected = false;
-	if(err.fatal)
-		//console.log("Fatal error");
-		connection.destroy();
-		connected = false;
-	if(!err.fatal)
-		//console.log("Non-fatal error");
-		connection.destroy();
-		connected = false;
-	  	return;
-	if(err.code !== 'PROTOCOL_CONNECTION_LOST')
-		throw err;
-		connection.destroy();
-});
-
-function checkConnection(value = 'index') {
-	if(!connected) {
-		connection = mysql.createConnection({
-		  host     : 'us-cdbr-iron-east-03.cleardb.net',
-		  user     : 'bd16f9aa3f67c9',
-		  password : '95cc362c',
-		  database : 'heroku_af028f2224ccdc7'
-		});
-
-		connection.connect(function(err) {
-		  if (err) {
-		  	console.log(err.code);
-		  	console.log(err);
-		    console.error('error connecting: ' + err.stack);
-		    return;
-		  }
-		 
-		  connected = true;
-		  console.log(connected);
-		  console.log('connected as id ' + connection.threadId);
-		});
-	} else {
-		console.log("Already connected.");
+//Attempt to connect to matthewdhuntley.com database on app startup:
+pool.getConnection(function(err, connection) {
+	if(!connection) {
+		console.log("Not connected.");
+		console.log(err);
+	} else if(connection) {
+		console.log("Initial app startup connection made.");
+  		console.log(connection.threadId);
 	}
-}
+});
+
+/*Pool events for tracking purposes*/
+pool.on('connection', function (connection) {
+  console.log('Connection event thrown.');
+});
+
+pool.on('release', function (connection) {
+  console.log('Connection %d released', connection.threadId);
+});
 
 //Render home page
 app.get('/', function(req, res) {
-	
-	//Check connection with each home page request:
-	checkConnection();
-	/*connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-	  if (error) throw error;
-	  console.log('The solution is: ', results[0].solution);
-	});*/
-	/*connection.query('SELECT * FROM film_reviews WHERE title LIKE "Lucas"', function (error, results, fields) {
-	  if (error) throw error;
-	  console.log('The solution is: ', results[0]);
-	});*/
-
 	var path = req.path;
 	res.locals.path = path; //This locals object is what get rendered in the template; it's the same as writing "res.render('index', { path: path });"
 	res.render('index');
@@ -140,67 +95,34 @@ views.forEach(function(value, index) {
 		if((value=="film-reviews" || value=="film-reviews/film-review") && req.query.search) {
 			console.log(req.query.search);
 			var myString = 'SELECT * FROM film_reviews WHERE title LIKE "%'+req.query.search+'%"';
-			console.log("mystring = "+myString);
-			console.log(typeof myString);
+			//console.log("mystring = "+myString);
+			//console.log(typeof myString);
 
-			//If there's a Database connection:
-			if(connected) {
-				connection.query(myString, function (error, results, fields) {
-					if(error) {
-						throw error;
-					} else {
-						res.render('film-reviews/film-reviews-search-results', {data: results});
-					}
-					/*if(results.length === 0) {
-						res.render('film-reviews/film-reviews-search-results', {data: results});
-					} else if(results.length > 0) {
-						console.log('The result is: ', results[0].review);
-				    	res.render('film-reviews/film-reviews-search-results', {data: results});
-					} else if (error) throw error;*/
-				});
-			} else { //Else...
-				//...attempt to establish a Database connection...
-				connection = mysql.createConnection({
-				  host     : 'us-cdbr-iron-east-03.cleardb.net',
-				  user     : 'bd16f9aa3f67c9',
-				  password : '95cc362c',
-				  database : 'heroku_af028f2224ccdc7'
-				});
-
-				connection.connect(function(err) {
-					//If no connection was established:
-					if (err) {
-						console.log(err.code);
-						console.log(err);
-						console.error('error connecting: ' + err.stack);
-						res.render('film-reviews/film-reviews-search-results', {noConnection: 'No database connection.'});
-						return;
-					}
-				 
-					//If a connection was established:
-					connected = true;
-					console.log(connected);
-					console.log('connected as id ' + connection.threadId);
-
-				  	//...and continue with the query....
+			pool.getConnection(function(err, connection) {
+				if(err) {
+					res.render('film-reviews/film-reviews-search-results', {noConnection: 'No database connection.'});
+					return;
+				} else if(connection) {
+					// Use the connection
 					connection.query(myString, function (error, results, fields) {
-						if(error) {
-							throw error;
-						} else {
-							res.render('film-reviews/film-reviews-search-results', {data: results});
-						}
 
-						/*if(results.length === 0) {
-							
-						} else if(results.length > 0) {
-							console.log('The result is: ', results[0].review);
-					    	//res.render(value);
-					    	//res.send("Hello");
-					    	res.render('film-reviews/film-reviews-search-results', {data: results});
-						} else if (error) throw error;*/
-					});
-				});
-			}
+				  	res.render('film-reviews/film-reviews-search-results', {data: results});
+				    
+				    // Release connection back into the pool; NOTE: Connection is still "alive" at this point.
+				    connection.release();
+
+				    //Destroy connection; NOTE: Connection is now dead/non-existent;
+				    //Adding this code just as a more surefire way to avoid fatal database connection issues; 
+				    //This is likely not necessary, but playing it safe for now:
+				    connection.destroy();
+
+				    // Handle error after the release.
+				    if (error) throw error;
+
+				    // Don't use the connection here, it has been returned to the pool.
+				  });
+				}
+			});
 		} else if(value=="film-reviews/film-review") {
 			res.render(value);
 		} else {
@@ -212,15 +134,14 @@ views.forEach(function(value, index) {
 //Film reviews pages form search:
 app.post('/film-reviews/film-review', function(req,res){
 	//console.log(req);
-	/*console.log(data);*/
-	console.log(req.body);
-	console.log(req.body.title);
-	console.log(req.body.review);
-	console.log("Hello");
-	res.render('film-reviews/film-review', {test : req.body});
+	//console.log(data);
+	//console.log(req.body);
+	//console.log(req.body.title);
+	//console.log(req.body.review);
+	res.render('film-reviews/film-review', {resultsKey : req.body});
 });
 
 //Start the node server
 app.listen(process.env.PORT || 3000, function() {
-	console.log("The frontend server is running on port 3000!");
+	console.log("The frontend server is running on port 3000.");
 });
