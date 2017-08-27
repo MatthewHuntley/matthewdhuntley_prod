@@ -106,7 +106,7 @@ views.forEach(function(value, index) {
 					// Use the connection
 					connection.query(myString, function (error, results, fields) {
 
-				  	res.render('film-reviews/film-reviews-search-results', {data: results});
+				  	res.render('film-reviews/film-reviews-search-results', {data: results, id: 'search-results'});
 				    
 				    // Release connection back into the pool; NOTE: Connection is still "alive" at this point.
 				    connection.release();
@@ -124,9 +124,9 @@ views.forEach(function(value, index) {
 				}
 			});
 		} else if(value=="film-reviews/film-review") {
-			res.render(value);
+			res.render(value, {id: 'film-review'});
 		} else {
-			res.render(value);
+			res.render(value, {id: value});
 		}
 	});
 });
