@@ -83,7 +83,7 @@ pool.on('release', function (connection) {
 app.get('/', function(req, res) {
 	var path = req.path;
 	res.locals.path = path; //This locals object is what get rendered in the template; it's the same as writing "res.render('index', { path: path });"
-	res.render('index');
+	res.render('index', {id: 'home'});
 });
 
 //Render subpages
