@@ -1,6 +1,8 @@
 head
-	title Matthew D. Huntley | A website dedicated to all things life: film, exercise, cooking, traveling, play.
+	title Matthew D. Huntley | A website dedicated to all things life: film, exercise, cooking, traveling, leisure.
 	meta(name='description' content='Matthew D. Huntley | A website dedicated to all things life: film, exercise, cooking, traveling, play.')
+	meta(name='msapplication-config' content='/static/img/favicon/browserconfig.xml')
+	meta(name='theme-color' content='#ffffff')
 	//link(rel='stylesheet', href='/static/css/bootstrap.css', type='text/css')
 	// Custom Fonts
 	//link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
@@ -22,5 +24,11 @@ head
 	//if lt IE 9
 		script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
 		script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-	link(rel='icon', href='static/img/favicon.ico')
+	link(rel='apple-touch-icon', sizes='180x180', href='/static/apple-touch-icon.png')
+	link(rel='icon', type='image/png', sizes='32x32', href='/static/img/favicon/favicon-32x32.png')
+	link(rel='icon', type='image/png', sizes='16x16', href='/static/img/favicon/favicon-16x16.png')
+	link(rel='manifest', href='/static/img/favicon/manifest.json')
+	link(rel='mask-icon', href='/static/img/favicon/safari-pinned-tab.svg' color='#fff')
+	link(rel='shortcut icon', href='/static/img/favicon.ico')
+	link(rel='icon', href='/static/favicon.ico')
 	link(rel='stylesheet', href='/static/css/main.min.css', type='text/css')
