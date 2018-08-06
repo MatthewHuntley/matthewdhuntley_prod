@@ -1,35 +1,35 @@
 div.wrapper-nav
-  div.container-fluid.clearfix
-    nav.navbar.navbar-inverse
-          .container
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand.navbar-left(href='/') <span class="initials">MDH</span><br><span class="fullName">Matthew D Huntley</span>
-            |         
-            #navbar.collapse.navbar-collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='/about') About MDH
-                |             
-                li
-                  a(href='/film-reviews') Film Reviews
-                |             
-                li
-                  div.dropdown
-                    button.button.btn-default.dropdown-toggle(type='button', id='dropdownMenu1', data-toggle='dropdown', aria-haspopup='false', aria-expanded='false') Lifestyle
-                    ul.dropdown-menu(aria-labelledby='dropdownMenu1')
-                        li
-                            a(href='/exercise') Exercise
-                        li
-                            a(href='/eat') Eat
-                        li
-                            a(href='/travel') Travel
-                        li
-                            a(href='/leisure') Leisure
+  nav.navbar.navbar-inverse
+        .container
+          .navbar-header
+            a.navbar-brand(href='/') <span class="initials">MDH</span>
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          |         
+          #navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li
+                a(href='/about') About MDH
+              |             
+              li
+                a(href='/film-reviews') Film Reviews
+              |             
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle="dropdown") Lifestyle 
+                  i.fa.fa-caret-down
+                ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                  li
+                    a(href='/exercise') Exercise
+                  li
+                    a(href='/eat') Eat
+                  li
+                    a(href='/travel') Travel
+                  li
+                    a(href='/leisure') Leisure
+            
 
 
 
