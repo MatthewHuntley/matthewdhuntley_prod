@@ -1,21 +1,21 @@
 extends ../layout.jade
 
 block content
-  div.wrapper-content.film-reviews
-    div.container-fluid.clearfix
-      div.row
-        div.col-sm-12
-          div#filmReviewsSearch
-            span Film Review Archives
-            form#search(method="get", accept-charset="UTF-8")
-              input(type="text", name="search" placeholder="SEARCH")
-              button(id="searchButton", type="submit", value="")
-                i(class="fa fa-search" aria-hidden="true")
-      div.container.content
-        -var results = resultsKey
-        h1!=results['title']
-        div.row.content-parent-row
-          div.col-md-6.col-lg-8
-            div.results
-              !=results['review']
+  div.wrapper-content.film-reviews.film-review-search-results
+    include ../partials/_film-reviews-search.jade
+    div.content-body
+      div.content-body-primary
+        div.container
+          div.row
+            div.col-sm-8
+              div.primary-item
+                div.primary-item-content
+                  -var results = resultsKey
+                  h1!=results['title']
+                  div.results
+                        !=results['review']
+            div.hidden-xs.col-sm-4
+              div.secondary-item
+                include ../partials/_sidebar.jade
+        
 

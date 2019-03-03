@@ -1,106 +1,15 @@
 extends ../layout.jade
 
 block content
-  div.wrapper-content.film-reviews
-    div.container-fluid.clearfix
-      div.row
-        div.col-sm-12
-          div#filmReviewsSearch
-            span Film Review Archives
-            form#search(method="get", accept-charset="UTF-8")
-              input(type="text", name="search" placeholder="SEARCH")
-              button(id="searchButton", type="submit", value="")
-                i(class="fa fa-search" aria-hidden="true")
-      div.container.content
-        h1 Film Reviews
-        div.row.content-parent-row
-          div.hidden-xs.hidden-sm.visible-md.col-md-6.visible-lg.col-lg-8
-            section#latest-film-review
-              article
-                div.row
-                  div.col-sm-12
-                    h3 Latest Review
-                    a(class="poster" href="/film-reviews/title")
-                    img(class="latest-film-review-image" src='https://oysternotes.files.wordpress.com/2016/11/manchester.jpg' alt="img")
-                    a(class="title" href="/film-reviews/title")
-                      h3.title Film Title 1 (2016)
-                    p.rating-year 
-                      i(class="fa fa-star" aria-hidden="true")
-                      i(class="fa fa-star" aria-hidden="true")
-                      i(class="fa fa-star" aria-hidden="true")
-                      i(class="fa fa-star" aria-hidden="true")
-                div.row
-                  div.col-sm-12
-                    p November 18, 2016 
-                    p A lot of films represent truth and the struggles humans must endure to survive day to day vicissitudes, but “Manchester by the Sea” practically feels human itself. It is alive and observant, happy and sad, humorous and resentful, and its characters come with their own choices and limitations. Just as humans sometimes feel they live just because they have to, “Manchester by the Sea” progresses naturally and without necessarily guaranteeing a certain outcome. It simply and unaffectedly watches its characters as they search for absolution, attempt to make sense of their situations, and hope the decisions they make are (finally) the right ones.
-                    p All this makes “Manchester by the Sea” sound like a grave, hard-hitting, depressing drama, and in many ways it is, but life can be too sometimes, and it's the deep, dark, somber moments we experience, combined with the lighter, more superficial and joyful events that make up this whole crazy thing called living. Collectively, they keep us going, and while many of life's challenges can be hard to bear, it's our hope that we can at least look back on them and realize they've made us grow and learn and ultimately given our lives meaning.
-            div#latest-film-review-link.hidden-xs.hidden-sm.visible-md.col-md-12.visible-lg
-              p.article-link-read-more
-                a(class='article-link' href='/film-reviews') ...Read More!
-              div.results
-                //-var results = data
-                  each item in results
-                    li= item.title
-          div.col-sm-12.col-md-6.col-lg-4
-            div#latest-reviews-list
-              h3.hidden-xs.hidden-sm.visible-md.visible-lg Other Recent Posts
-              figure.hidden-md.hidden-lg
-                a(class="poster" href="/film-reviews/title")
-                  img(class="latest-film-review-image" src='https://oysternotes.files.wordpress.com/2016/11/manchester.jpg' alt="img")
-                a(class="title" href="/film-reviews/title")
-                  h5 Film Title 1 (2016)
-                p.rating-year 
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-              figure
-                a(class="poster" href="/film-reviews/title")
-                  img(class="" src='http://static.rogerebert.com/uploads/movie/movie_poster/fences-2016/widget_fences.jpg' alt='img')
-                a(class="title" href="/film-reviews/title")
-                  h5 Film Title 2 (2016)
-                p.rating-year 
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-              figure
-                a(class="poster" href="/film-reviews/title")
-                  img(class="" src='http://static.rogerebert.com/uploads/movie/movie_poster/fences-2016/widget_fences.jpg' alt='img')
-                a(class="title" href="/film-reviews/title")
-                  h5 Film Title 3 (2016)
-                p.rating-year 
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-              figure
-                a(class="poster" href="/film-reviews/title")
-                  img(class="" src='http://static.rogerebert.com/uploads/movie/movie_poster/fences-2016/widget_fences.jpg' alt='img')
-                a(class="title" href="/film-reviews/title")
-                  h5 Film Title 4 (2016)
-                p.rating-year 
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-              figure
-                a(class="poster" href="/film-reviews/title")
-                  img(class="" src='http://static.rogerebert.com/uploads/movie/movie_poster/fences-2016/widget_fences.jpg' alt='img')
-                a(class="title" href="/film-reviews/title")
-                  h5 Film Title 5 (2016)
-                p.rating-year 
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-              figure
-                a(class="poster" href="/film-reviews/title")
-                  img(class="" src='http://static.rogerebert.com/uploads/movie/movie_poster/fences-2016/widget_fences.jpg' alt='img')
-                a(class="title" href="/film-reviews/title")
-                  h5 Film Title 6 (2016)
-                p.rating-year 
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
-                  i(class="fa fa-star" aria-hidden="true")
+  div.wrapper-content
+    include ../partials/_film-reviews-search.jade
+    div.content-body
+      div.content-body-primary
+        div.container
+          div.row
+            div.col-sm-8
+              div.primary-item
+                include ./film-review-latest.jade
+            div.hidden-xs.col-sm-4
+              div.secondary-item
+                include ../partials/_sidebar.jade

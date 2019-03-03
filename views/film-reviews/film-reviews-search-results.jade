@@ -2,28 +2,28 @@ extends ../layout.jade
 
 block content
   div.wrapper-content.film-reviews.film-review-search-results
-    div.container-fluid.clearfix
-      div.row
-        div.col-sm-12
-          div#filmReviewsSearch
-            span Film Review Archives
-            form#search(method="get", accept-charset="UTF-8")
-              input(type="text", name="search" placeholder="SEARCH")
-              button(id="searchButton", type="submit", value="")
-                i(class="fa fa-search" aria-hidden="true")
-      div.container.content
-        h1 Search Results Page
-        div.row.content-parent-row
-          div.col-md-6.col-lg-8
-            div.results
-                if data
-                  -var results = data
-                  if results.length === 0
-                      p No results found
-                    each item in results
-                      form#filmForm(action='/film-reviews/film-review/' method="post", accept-charset="UTF-8" data-film-review=item.review)
-                        input(type='text',value=item.review,name='review',style="display: none")
-                        input(type='text',value=item.title,name='title',style="display: none")
-                        button(class="resultButton", type="submit", value="")=item.title
-                if noConnection
-                  p We&#39;re sorry, but a search could not be completed at this time. Please try again later.
+    include ../partials/_film-reviews-search.jade
+    div.content-body
+      div.content-body-primary
+        div.container
+          div.row
+            div.col-sm-8
+              div.primary-item
+                span.primary-item-title Search Results
+                div.primary-item-content
+                  div.results
+                      if data
+                        -var results = data
+                        if results.length === 0
+                            p No results found
+                          each item in results
+                            form#filmForm(action='/film-reviews/film-review/' method="post", accept-charset="UTF-8" data-film-review=item.review)
+                              input(type='text',value=item.review,name='review',style="display: none")
+                              input(type='text',value=item.title,name='title',style="display: none")
+                              span(class="resultLink-wrapper") 
+                                button(class="resultLink", type="submit", value="")=item.title
+                      if noConnection
+                        p We&#39;re sorry, but a search could not be completed at this time. Please try again later.
+            div.hidden-xs.col-sm-4
+              div.secondary-item
+                include ../partials/_sidebar.jade

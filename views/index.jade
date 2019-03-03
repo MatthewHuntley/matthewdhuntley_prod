@@ -2,83 +2,105 @@ extends ./layout.jade
 
 block content
   div.wrapper-content
-    include ./includes/intro.jade
-    include ./includes/slider.jade
-    div.wrapper-content-desktop
-      div.container-fluid.clearfix
-        div.wrapper-primary-content-desktop
+    include ./partials/_intro.jade
+    include ./partials/_slider.jade
+    div.content-body
+      div.content-body-primary
+        div.container
           div.row
-            div.col-sm-12.col-lg-8.primary-content
-              div.content
-                .container
-                  div.row
-                    div.col-sm-12
-                      section.home-film-reviews
-                        h4.section-title Latest Film Review
-                        article
-                          div.row
-                            div.col-sm-6
-                              a(class='article-link article-link-image' href='/film-reviews')
-                                img(class="latest-film-review-image" src='http://placehold.it/1000x750' alt="img")
-                                span.article-link-image-caption Film Review Caption
-                            div.col-sm-6
-                              h4.article-title.film-title Title Coming Soon!
-                              div.article-copy.film-review Review Coming Soon!
-                              p.article-link-read-more
-                                a(class='article-link' href='/film-reviews') ...Read More!
-            div.visible-lg.col-lg-4.col-home-twitter
-              div.content
-                .container
-                  a(class='twitter-timeline' href='https://twitter.com/MatthewDHuntley' data-border-color="#DBD1AD" data-chrome="nofooter" data-height="350")
-                    script(src='//platform.twitter.com/widgets.js' charset='utf-8')
-        div.wrapper-secondary-content-desktop
+            div.col-sm-12.col-md-8
+              div.primary-item.home-film-reviews
+                span.primary-item-title Latest Film Review
+                div.primary-item-content
+                  a(class='primary-item-image-link' href='/film-reviews')
+                    img(src='https://cdn.vox-cdn.com/thumbor/umHdfL60uK0inIW7baByu44QAxw=/0x0:2040x1360/1200x800/filters:focal(614x445:940x771)/cdn.vox-cdn.com/uploads/chorus_image/image/61260331/AA68_D023_00164RV4.jpg_cmyk_2040.0.jpg' alt="img")
+                    span.primary-item-image-link-caption Jamie Lee Curtis' HALLOWEEN heroine just can&#8217;t catch a break.
+                  div.primary-item-copy
+                    span.primary-item-copy-title Halloween (2018)
+                    div.primary-item-copy-body I left “Halloween” (2018) scratching my head. What did I just see exactly? A sequel? An homage? A paltry imitation of a classic? I think it was all of the above, but I guess I’d have to sit down with director David Gordon Green and star Jamie Lee Curtis to know for sure.
+                    span.primary-item-copy-link
+                      a(href='/film-reviews') Read more...
+            div.hidden-xs.hidden-sm.col-md-4
+              a(class='twitter-timeline' href='https://twitter.com/MatthewDHuntley' data-border-color="#DBD1AD" data-chrome="nofooter" data-height="100%")
+                script(src='//platform.twitter.com/widgets.js' charset='utf-8')
+      div.content-body-secondary
+        div.container
           div.row
-            div.col-sm-6.secondary-content
-              div.content
-                .container
-                  section.home-exercise
-                    h4.section-title Weekend Exercise Challenge
-                    article
-                      a(class='article-link article-link-image' href='/exercise')
-                        img(class="weekend-exercise-challenge-image" src='http://placehold.it/1000x750' alt="img")
-                      h4.article-title Challenge Title Coming Soon!
-                      div.article-copy.exercise-challenge Challenge Coming Soon!
-                      p.article-link-read-more
-                        a(class='article-link' href='/exercise') ...Read More!
-            div.col-sm-6.secondary-content
-              div.content
-                .container
-                  section.home-eat
-                    h4.section-title Latest Cooking Recipe
-                    article
-                      a(class='article-link article-link-image' href='/eat')
-                        img(class="latest-film-review-image" src='http://placehold.it/1000x750' alt="img")
-                      h4.article-title Dish Name Coming Soon!
-                      div.article-copy.cooking-recipe Recipe Coming Soon!
-                      p.article-link-read-more
-                        a(class='article-link' href='/eat') ...Read More!
-          div.row
-            div.col-sm-6.secondary-content
-              div.content
-                .container
-                  section.home-travel
-                    h4.section-title Latest Travel Destination
-                    article
-                      a(class='article-link article-link-image' href='/travel')
-                        img(class="latest-film-review-image" src='http://placehold.it/1000x750' alt="img")
-                      h4.article-title Destination Coming Soon!
-                      div.article-copy.travel-destination Destination Details Coming Soon!
-                      p.article-link-read-more
-                        a(class='article-link' href='/travel') ...Read More!
-            div.col-sm-6.secondary-content
-              div.content
-                .container
-                  section.home-play
-                    h4.section-title Latest Leisure Suggestion
-                    article
-                      a(class='article-link article-link-image' href='/leisure')
-                        img(class="latest-film-review-image" src='http://placehold.it/1000x750' alt="img")
-                      h4.article-title Leisure Activity Name Coming Soon!
-                      div.article-copy.leisure-activity Leisure Details Coming Soon!
-                      p.article-link-read-more
-                        a(class='article-link' href='/leisure') ...Read More!
+            div.col-sm-6.col-lg-3
+              div.secondary-item.home-exercise
+                span.secondary-item-title Latest Exercise Challenge
+                div.secondary-item-content
+                  a(class='secondary-item-image-link' href='/exercise')
+                    img(src='http://placehold.it/1000x500' alt="img")
+                    span.secondary-item-image-link-caption Exercise Caption
+                  div.secondary-item-copy
+                    span.secondary-item-copy-title Title Coming Soon!
+                    div.secondary-item-copy-body Review Coming Soon!
+                    span.secondary-item-copy-link
+                      a(href='/exercise') ...Read More!
+            div.col-sm-6.col-lg-3
+              div.secondary-item.home-exercise
+                span.secondary-item-title Latest Cooking Recipe
+                div.secondary-item-content
+                  a(class='secondary-item-image-link' href='/eat')
+                    img(src='http://placehold.it/1000x500' alt="img")
+                    span.secondary-item-image-link-caption Recipe Caption
+                  div.secondary-item-copy
+                    span.secondary-item-copy-title Title Coming Soon!
+                    div.secondary-item-copy-body Review Coming Soon!
+                    span.secondary-item-copy-link
+                      a(href='/eat') ...Read More!
+            div.col-sm-6.col-lg-3
+              div.secondary-item.home-exercise
+                span.secondary-item-title Latest Travel Destination
+                div.secondary-item-content
+                  a(class='secondary-item-image-link' href='/travel')
+                    img(src='http://placehold.it/1000x500' alt="img")
+                    span.secondary-item-image-link-caption Travel Caption
+                  div.secondary-item-copy
+                    span.secondary-item-copy-title Title Coming Soon!
+                    div.secondary-item-copy-body Review Coming Soon!
+                    span.secondary-item-copy-link
+                      a(href='/travel') ...Read More!
+            div.col-sm-6.col-lg-3
+              div.secondary-item.home-exercise
+                span.secondary-item-title Latest Leisure Activity
+                div.secondary-item-content
+                  a(class='secondary-item-image-link' href='/leisure')
+                    img(src='http://placehold.it/1000x500' alt="img")
+                    span.secondary-item-image-link-caption Leisure Caption
+                  div.secondary-item-copy
+                    span.secondary-item-copy-title Title Coming Soon!
+                    div.secondary-item-copy-body Review Coming Soon!
+                    span.secondary-item-copy-link
+                      a(href='/leisure') ...Read More!
+            //div.col-sm-6
+              div.secondary-item.home-cooking
+                h4.section-title Latest Cooking Recipe
+                article
+                  a(class='article-link article-link-image' href='/eat')
+                    img(class="latest-film-review-image" src='http://placehold.it/1000x750' alt="img")
+                  h4.article-title Dish Name Coming Soon!
+                  div.article-copy.cooking-recipe Recipe Coming Soon!
+                  p.article-link-read-more
+                    a(class='article-link' href='/eat') ...Read More!
+            //div.col-sm-6
+              div.secondary-item.home-travel
+                h4.section-title Latest Travel Destination
+                article
+                  a(class='article-link article-link-image' href='/travel')
+                    img(class="latest-film-review-image" src='http://placehold.it/1000x750' alt="img")
+                  h4.article-title Destination Coming Soon!
+                  div.article-copy.travel-destination Destination Details Coming Soon!
+                  p.article-link-read-more
+                    a(class='article-link' href='/travel') ...Read More!
+            //div.col-sm-6
+              div.secondary-item.home-leisure
+                h4.section-title Latest Leisure Suggestion
+                article
+                  a(class='article-link article-link-image' href='/leisure')
+                    img(class="latest-film-review-image" src='http://placehold.it/1000x750' alt="img")
+                  h4.article-title Leisure Activity Name Coming Soon!
+                  div.article-copy.leisure-activity Leisure Details Coming Soon!
+                  p.article-link-read-more
+                    a(class='article-link' href='/leisure') ...Read More!

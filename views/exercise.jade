@@ -1,17 +1,19 @@
 extends ./layout.jade
 
 block content
-  div.wrapper-content.exercise
-    div.container-fluid.clearfix
-      div.container.content
-        div.row
-          h1.col-sm-12.float-right.interior-page-title Exercise
-        div.row.content-parent-row
-          div.col-sm-12.float-left.interior-page-image-container
-            img(class="img-responsive" src='http://placehold.it/350x350' alt="img")
-            p.interior-page-image-caption This is my page image caption.
-          div.col-sm-12.float-right.interior-page-copy-container
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper condimentum egestas. Mauris scelerisque velit at tortor condimentum, id imperdiet dui pellentesque. Etiam viverra, lorem at vulputate elementum, enim sapien semper magna, in varius elit mauris in elit. Etiam eleifend ante vel mauris pulvinar, quis tempor sem hendrerit. Aenean finibus hendrerit ex, sed mattis orci convallis quis. Donec lobortis velit sed augue tempus accumsan. Etiam velit augue, scelerisque ac dignissim et, luctus vel dui. Mauris aliquet mattis urna, sit amet ullamcorper enim laoreet eu. Vestibulum a volutpat felis.
-            p Maecenas eu congue ex. Suspendisse a rutrum enim, sit amet finibus libero. Quisque luctus ullamcorper libero, sed vehicula arcu porttitor vitae. Vivamus pellentesque lacinia mi quis porta. Nam euismod, odio vel interdum scelerisque, sapien arcu sagittis tellus, sed dapibus sem dolor id nibh. Aliquam eros nunc, lobortis eget libero sit amet, ultricies cursus leo. Nam id feugiat dolor. In facilisis arcu neque, sed ultrices turpis aliquet pharetra. Proin at massa non massa faucibus porttitor eu quis nisl. Vivamus et sollicitudin leo.
-            p Sed ac diam ac felis tincidunt blandit malesuada id arcu. Phasellus auctor cursus varius. Proin a velit nisi. Morbi sit amet maximus sapien. Donec eget quam vehicula, facilisis mi suscipit, luctus leo. Ut ultricies, nulla vel facilisis luctus, felis dolor tristique turpis, vitae blandit nulla tellus sit amet quam. Maecenas id lacus eget elit scelerisque molestie. Nam eget leo nisi. Suspendisse vehicula nisi sapien, mattis mattis turpis auctor non. Mauris euismod est lobortis, sollicitudin lectus hendrerit, auctor metus. Donec consectetur libero quis risus viverra elementum. Duis scelerisque mauris sit amet sem suscipit lacinia eget ut eros. Quisque sit amet velit tincidunt ex mattis porta sit amet et dui. Praesent hendrerit massa at massa consequat, ac scelerisque odio facilisis. Suspendisse rutrum scelerisque posuere. Sed dui orci, maximus pretium mi sed, euismod malesuada felis.
-            p In ut diam in arcu molestie euismod non non est. Nunc sapien ipsum, fermentum vel sagittis at, ornare sed eros. Ut tempus vehicula imperdiet. Cras tempor metus vel nunc volutpat dignissim. Proin eu tellus mi. Duis quis odio nec ipsum suscipit eleifend a ut ante. Sed accumsan convallis libero eu pulvinar. Sed sit amet nunc quis augue luctus vestibulum at non tellus. Quisque commodo volutpat massa, sed vulputate tellus interdum eu. Nunc dolor elit, convallis vel augue eu, lacinia iaculis ante.
+  div.wrapper-content.interior-page
+    div.content-body
+      div.content-body-primary
+        div.container
+          div.row
+            div.col-sm-8
+              div.primary-item
+                span.primary-item-title Exercise
+                div.primary-item-content
+                  div.primary-item-copy
+                    div.primary-item-copy-body
+                      p Believe it or not, the human body was meant to move, and given our sedentary lifestyles, it may take a long time before we realize this (it took me roughtly 27 years before I even initially appreciated the notion that any kind of moving could be a joyous thing in and of itself). But I found (and continue to find) it's never too late to start putting your muscles to work, and the more diverse the work, the more rewarding I find it, so this page is dedicated to the latest and greatest excercise I happen to come across that has shaken up my otherwise idle routine.
+                      span.primary-item-copy-title Latest Exercise
+            div.hidden-xs.col-sm-4
+              div.secondary-item
+                include ./partials/_sidebar.jade
