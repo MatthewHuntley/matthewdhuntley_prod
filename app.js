@@ -107,7 +107,7 @@ views.forEach(function(value, index) {
 					// Use the connection
 					connection.query(myString, function (error, results, fields) {
 
-				  	res.render('film-reviews/film-reviews-search-results', {data: results, id: 'search-results'});
+				  	res.render('film-reviews/film-reviews-search-results', {data: results, id: 'film-reviews-search-results'});
 				    
 				    // Release connection back into the pool; NOTE: Connection is still "alive" at this point.
 				    connection.release();

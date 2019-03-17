@@ -7496,13 +7496,13 @@ button.close {
   display: block;
 }
 /*Edit this/adjust for all screen sizes (currently only caters to large desktop view)*/
-/*.wrapper-nav .dropdown-menu > li > a {
-                                                  height: 35px;
-                                                  padding: 7px 20px;
-                                                  line-height: 35px;
-                                                }*/
+.wrapper-nav .dropdown-menu > li > a {
+  height: 35px;
+}
 .wrapper-nav .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
   color: #ffffff;
+  line-height: 25px;
+  padding: 10px 15px 10px 25px;
   transition-duration: 0.5s;
 }
 .wrapper-nav .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:active,
@@ -7517,9 +7517,8 @@ button.close {
 .wrapper-nav .navbar #navbar .nav .dropdown-menu li.active-top,
 .wrapper-nav .navbar #navbar .nav .dropdown-menu li.active-top button,
 .wrapper-nav .navbar #navbar .nav .dropdown-menu li a.active {
-  /*Edit this/adjust for all screen sizes*/
-  /*background: rgba(255, 255, 255, 1.0);*/
-  color: rgba(255, 255, 255, 0.5);
+  background: #ffffff;
+  color: #000000;
 }
 /*------------------------------------*\
   #MEDIA QUERIES
@@ -7609,10 +7608,13 @@ button.close {
   }
   .wrapper-nav .navbar-inverse .navbar-nav > li > a {
     padding-top: 14px;
-    padding-bottom: 0;
+    padding-bottom: 3px;
   }
   .wrapper-nav .navbar-inverse .navbar-nav > li > a i {
     margin-top: -5px;
+  }
+  .wrapper-nav .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    line-height: 28px;
   }
   .wrapper-nav .navbar-inverse .navbar-brand span.initials {
     font-size: 5em;
