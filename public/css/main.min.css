@@ -7297,6 +7297,23 @@ button.close {
 /*
 ** All Interior Pages
 */
+/*
+** General Styles
+*/
+.wrapper-content.interior-page a {
+  display: inline-block;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+.wrapper-content.interior-page a:active,
+.wrapper-content.interior-page a:focus,
+.wrapper-content.interior-page a:hover {
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+/*
+** Content
+*/
 .wrapper-content.interior-page .content-body {
   height: 100%;
 }
@@ -7324,6 +7341,9 @@ button.close {
   font-weight: 400;
   margin-bottom: 15px;
   text-transform: none;
+}
+.wrapper-content.interior-page .primary-item-copy-title {
+  margin: 20px 0 5px;
 }
 /*
 ** About
@@ -8076,6 +8096,12 @@ body {
  */
 img {
   max-width: 100%;
+}
+/**
+ * Helper Classes
+ */
+.text-italic {
+  font-style: italic;
 }
 /**
  * Content
