@@ -6772,6 +6772,16 @@ button.close {
   max-width: 1400px;
   width: 100%;
 }
+#film-review .review-image {
+  margin-bottom: 20px;
+  position: relative;
+}
+#film-review .review-image img {
+  display: block;
+}
+#film-review .review-copy {
+  position: relative;
+}
 /*------------------------------------*\
   #MEDIA QUERIES
 \*------------------------------------*/
@@ -7204,39 +7214,34 @@ button.close {
   width: 100%;
 }
 #home .wrapper-content .content-body .content-body-primary {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
-#home .wrapper-content .primary-item,
-#home .wrapper-content .secondary-item {
+/*
+			 * Primary Item Styles
+			*/
+#home .wrapper-content .primary-item {
   padding: 15px;
 }
 #home .wrapper-content .secondary-item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 #home .wrapper-content .primary-item-content {
   display: flex;
   position: relative;
 }
-#home .wrapper-content .primary-item-copy-title,
-#home .wrapper-content .secondary-item-copy-title {
-  margin-bottom: 15px;
+#home .wrapper-content .primary-item-copy-title {
+  margin-bottom: 10px;
 }
-#home .wrapper-content .primary-item-image-link {
+#home .wrapper-content .primary-item-link-image {
   margin-right: 30px;
   width: 50%;
 }
-#home .wrapper-content .secondary-item-image-link {
-  margin-bottom: 15px;
-}
-#home .wrapper-content .primary-item-image-link img,
-#home .wrapper-content .secondary-item-image-link img {
+#home .wrapper-content .primary-item-link-image a {
   display: block;
   margin-bottom: 5px;
 }
-#home .wrapper-content .primary-item-image-link-caption,
-#home .wrapper-content .secondary-item-image-link-caption {
+#home .wrapper-content .primary-item-link-image-caption {
   color: rgba(34, 34, 34, 0.75);
   display: block;
   font-size: 0.7em;
@@ -7247,15 +7252,42 @@ button.close {
   height: 100%;
   width: 50%;
 }
-#home .wrapper-content .primary-item-copy-body,
-#home .wrapper-content .secondary-item-copy-body {
-  margin-bottom: 20px;
+#home .wrapper-content .primary-item-copy-body {
+  margin-bottom: 15px;
 }
-#home .wrapper-content .primary-item-copy-link,
-#home .wrapper-content .secondary-item-copy-link {
+#home .wrapper-content .primary-item-copy-link {
+  display: block;
+  text-align: right;
+}
+#home .wrapper-content .primary-item-copy-link a {
+  display: inline-block;
+  text-decoration: underline;
+  transition-duration: 0.5s;
+}
+/*
+			 * Secondary Item Styles
+			*/
+#home .wrapper-content .secondary-item {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+#home .wrapper-content .secondary-item-title br {
+  display: none;
+}
+#home .wrapper-content .secondary-item-link-image {
+  margin-bottom: 15px;
+}
+#home .wrapper-content .secondary-item-link-image a {
   display: block;
 }
-#home .wrapper-content .primary-item-copy-link a,
+#home .wrapper-content .secondary-item-copy-body {
+  margin-bottom: 15px;
+}
+#home .wrapper-content .secondary-item-copy-link {
+  display: block;
+  text-align: right;
+}
 #home .wrapper-content .secondary-item-copy-link a {
   display: inline-block;
   text-decoration: underline;
@@ -7289,6 +7321,9 @@ button.close {
   #home .wrapper-content .content-body-secondary .row .col-sm-6:nth-of-type(2) {
     margin-bottom: 0;
   }
+  #home .wrapper-content .secondary-item-title br {
+    display: inline;
+  }
 }
 
 /*------------------------------------*\
@@ -7300,6 +7335,10 @@ button.close {
 /*
 ** General Styles
 */
+.wrapper-content.interior-page p {
+  font-size: 17px;
+  line-height: 1.6;
+}
 .wrapper-content.interior-page a {
   display: inline-block;
   text-decoration: none;
@@ -7345,12 +7384,122 @@ button.close {
 .wrapper-content.interior-page .primary-item-copy-title {
   margin: 20px 0 5px;
 }
+/*------------------------------------*\
+  #PAGE SPECIFIC STYLES
+\*------------------------------------*/
 /*
 ** About
 */
+/*
+** Exercise
+*/
+#exercise .wrapper-content.interior-page .primary-item-copy-title {
+  margin-bottom: 6px;
+}
+#exercise .exercise-video {
+  margin-bottom: 10px;
+  position: relative;
+}
+/*
+** Eat
+*/
+#eat .primary-item-copy-image-wrapper {
+  display: flex;
+  position: relative;
+}
+#eat .primary-item-copy-image-wrapper .copy-wrapper p:last-of-type {
+  margin-bottom: 0;
+}
+#eat .primary-item-copy-image-wrapper:nth-of-type(1) {
+  margin-bottom: 20px;
+}
+/*
+** Travel
+*/
+#travel .primary-item-copy-image-wrapper {
+  display: flex;
+  min-height: 450px;
+  position: relative;
+}
+#travel .primary-item-copy-image-wrapper .copy-wrapper p:last-of-type {
+  margin-bottom: 0;
+}
+/*
+** Leisure
+*/
+#leisure .primary-item-copy-image-wrapper {
+  display: flex;
+  position: relative;
+}
+#leisure .primary-item-copy-image-wrapper:nth-of-type(1) {
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+#leisure .primary-item-copy-image-wrapper:nth-of-type(2) {
+  padding-bottom: 12px;
+}
+#leisure .primary-item-copy-image-wrapper:nth-of-type(1) .copy-wrapper {
+  width: 100%;
+}
+#leisure .primary-item-copy-image-wrapper .copy-wrapper p:last-of-type {
+  margin-bottom: 0;
+}
+#leisure .primary-item-copy-image-wrapper .image-wrapper {
+  width: 100%;
+}
+#leisure .primary-item-copy-image-wrapper:nth-of-type(1) .image-wrapper {
+  margin-bottom: 15px;
+}
 /*------------------------------------*\
   #MEDIA QUERIES
 \*------------------------------------*/
+@media (min-width: 992px) {
+  /*
+	** Eat
+	*/
+  #eat .primary-item-copy-image-wrapper .copy-wrapper {
+    width: 47%;
+  }
+  #eat .primary-item-copy-image-wrapper .image-wrapper {
+    margin-left: auto;
+    width: 47%;
+  }
+  #eat .primary-item-copy-image-wrapper:nth-of-type(1) {
+    margin-bottom: 30px;
+  }
+  #eat .primary-item-copy-image-wrapper .image-wrapper.recipe {
+    background: url('/static/images/interior-pages/eat/recipe-black-bean-dip.jpg') 50% 0 no-repeat;
+    background-size: cover;
+  }
+  #eat .primary-item-copy-image-wrapper .image-wrapper.restaurant {
+    background: url('/static/images/interior-pages/eat/restaurant-faryab-afghan-cuisine.jpg') 0 50% no-repeat;
+    background-size: cover;
+  }
+  /*
+	** Travel
+	*/
+  #travel .primary-item-copy-image-wrapper .copy-wrapper {
+    width: 47%;
+  }
+  #travel .primary-item-copy-image-wrapper .image-wrapper {
+    background: url('/static/images/interior-pages/travel/travel-st-georges-castle.jpg') 50% 0 no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    width: 47%;
+  }
+  /*
+	** Leisure
+	*/
+  #leisure .primary-item-copy-image-wrapper:nth-of-type(2) .copy-wrapper {
+    width: 47%;
+  }
+  #leisure .primary-item-copy-image-wrapper:nth-of-type(2) .image-wrapper {
+    background: url('/static/images/interior-pages/leisure/leisure-national-building-museum-exterior.jpg') 50% 30% no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    width: 47%;
+  }
+}
 
 /*------------------------------------*\
   #INTRO BLOCK
@@ -7944,24 +8093,30 @@ button.close {
 .wrapper-slick-carousel {
   position: relative;
 }
-/**
- 	 * slick-theme.css overrides
+/*
+ 	 * slick-theme.css and slick.css overrides and additions
 	*/
-/**
+/*
+	 * Center slide
+	*/
+.wrapper-slick-carousel .slick-track {
+  margin: 0 auto;
+}
+/*
 	 * Inherent class from slick.css representing each slide; exists on same level as author-implemented id
 	*/
 .wrapper-slick-carousel .slick-slide {
   margin-bottom: 12px;
   width: 100%;
 }
-/**
+/*
 	 * Remove default dotted outline
 	*/
 .wrapper-slick-carousel .slick-slide:active,
 .wrapper-slick-carousel .slick-slide:focus {
   outline: 0;
 }
-/**
+/*
 	 * Slick Arrows
 	*/
 .wrapper-slick-carousel .slick-arrow,
@@ -7969,7 +8124,7 @@ button.close {
 .wrapper-slick-carousel .slick-prev {
   display: none !important;
 }
-/**
+/*
 	 * Slick Arrows
 	*/
 .wrapper-slick-carousel .slick-dots {
@@ -7981,13 +8136,13 @@ button.close {
 .wrapper-slick-carousel .slick-dots li button::before {
   color: #ffffff;
   font-size: 50px;
-  opacity: 1.0;
+  opacity: 1;
 }
 .wrapper-slick-carousel .slick-dots li.slick-active button::before {
   color: #b57843;
-  opacity: 1.0;
+  opacity: 1;
 }
-/**
+/*
  	 * Developer-implemented styles
 	*/
 .wrapper-slick-carousel .slick-carousel {
@@ -8006,27 +8161,25 @@ button.close {
   display: block;
   font-family: 'BankGothicLight';
   font-weight: 500;
+  font-size: 0.95em;
   text-align: left;
   text-transform: uppercase;
 }
-.wrapper-slick-carousel .slide-link {
-  display: block;
-  font-family: 'MyriadProRegular';
-  font-weight: 400;
-  transition-duration: 0.5s;
-}
-.wrapper-slick-carousel .slide-link:active,
-.wrapper-slick-carousel .slide-link:focus,
-.wrapper-slick-carousel .slide-link:hover {
-  outline: 0;
-}
-.wrapper-slick-carousel .slide-link-image,
-.wrapper-slick-carousel .slide-link-image .wrapper-slick-carousel .slide-link-image {
+.wrapper-slick-carousel .slide-link-image {
   margin-bottom: 15px;
+}
+.wrapper-slick-carousel .slide-link-image a {
+  display: block;
+  transition-duration: 0.5s;
 }
 .wrapper-slick-carousel img {
   height: auto;
   width: 100%;
+}
+.wrapper-slick-carousel .slide-link-image a:active,
+.wrapper-slick-carousel .slide-link-image a:focus,
+.wrapper-slick-carousel .slide-link-image a:hover {
+  outline: 0;
 }
 .wrapper-slick-carousel .slide-copy {
   display: block;
@@ -8040,8 +8193,14 @@ button.close {
 }
 .wrapper-slick-carousel .slide-link-read-more {
   display: block;
+  font-family: 'MyriadProRegular';
+  font-weight: 400;
   margin-bottom: 15px;
   text-align: right;
+  transition-duration: 0.5s;
+}
+.wrapper-slick-carousel .slide-link-read-more a {
+  display: inline-block;
   text-decoration: underline;
 }
 /*------------------------------------*\
@@ -8100,6 +8259,10 @@ img {
 /**
  * Helper Classes
  */
+.text-bold {
+  font-family: 'MyriadProBold';
+  font-weight: 700;
+}
 .text-italic {
   font-style: italic;
 }

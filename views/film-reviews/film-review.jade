@@ -11,9 +11,11 @@ block content
               div.primary-item
                 div.primary-item-content
                   -var results = resultsKey
-                  h1!=results['title']
-                  div.results
-                        !=results['review']
+                  h1.review-title!=results['title']
+                  div.review-image
+                    !=results['image']
+                  div.review-copy
+                    !=results['review']
             div.hidden-xs.col-sm-4
               div.secondary-item
                 include ../partials/_sidebar.jade

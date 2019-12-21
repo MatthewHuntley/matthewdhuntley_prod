@@ -18,8 +18,9 @@ block content
                             p No results found
                           each item in results
                             form#filmForm(action='/film-reviews/film-review/' method="post", accept-charset="UTF-8" data-film-review=item.review)
-                              input(type='text',value=item.review,name='review',style="display: none")
                               input(type='text',value=item.title,name='title',style="display: none")
+                              input(type='text',value=item.image,name='image',style="display: none")
+                              input(type='text',value=item.review,name='review',style="display: none")
                               span(class="resultLink-wrapper") 
                                 button(class="resultLink", type="submit", value="")=item.title
                       if noConnection
