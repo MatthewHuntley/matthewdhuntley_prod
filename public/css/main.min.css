@@ -8162,6 +8162,8 @@ button.close {
   font-family: 'BankGothicLight';
   font-weight: 500;
   font-size: 0.95em;
+  line-height: 1;
+  margin: 0;
   text-align: left;
   text-transform: uppercase;
 }
