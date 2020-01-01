@@ -8301,6 +8301,7 @@ img {
   font-size: 1.125em;
   font-weight: 500;
   line-height: 1;
+  margin: 0;
   text-transform: uppercase;
 }
 .wrapper-content .primary-item-content,
