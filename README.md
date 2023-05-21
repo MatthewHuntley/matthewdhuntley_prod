@@ -1,4 +1,4 @@
 # matthewdhuntley
 matthewdhuntley_prod GitHub Repository
 
-A website about Matthew David Huntley.
+A website about Matthew D. Huntley.
